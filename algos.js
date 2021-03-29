@@ -93,4 +93,91 @@ function nonConstructibleChange(coins) {
       }
       
     return maxCoinValue + 1;
+}
+
+// MINIMUM WAITING TIME
+
+function minimumWaitingTime(queries) {
+	queries.sort((a, b) => a - b)
+	
+	let waitingTime = 0
+	
+	for (let i = 0; i < queries.length; i++) {
+		const queriesLeft = queries.length - (i + 1)
+		waitingTime += queriesLeft * queries[i]
+	}
+	
+  return waitingTime;
+}
+
+// CLASS PHOTOS
+
+function classPhotos(redShirtHeights, blueShirtHeights) {
+    // Write your code here.
+  // 	store the front and back row in two arrays 
+      let frontRow = []
+      let backRow = []
+  // 	sort the arrays to compare their end values
+      const sortedReds = redShirtHeights.sort()
+      const sortedBlues = blueShirtHeights.sort()
+  // 	compare sorted arrays tallest student height and determine which is front / back row
+      if (sortedReds[sortedReds.length - 1] > sortedBlues[sortedBlues.length - 1]) {
+          frontRow = sortedBlues
+          backRow = sortedReds
+      } else {
+          frontRow = sortedReds
+          backRow = sortedBlues
+      }
+  // loop through backRow and determine if students in back row are taller
+      for (let i = 0; i < backRow.length; i++) {
+          return frontRow[i] < backRow[i]
+      }
+    return false;
+}
+
+// REMOVE DUPLICATES FROM LINKED LIST
+
+class LinkedList {
+    constructor(value) {
+      this.value = value;
+      this.next = null;
+    }
+  }
+  
+function removeDuplicatesFromLinkedList(linkedList) {
+    // Write your code here.
+      let currentNode = linkedList
+      
+      while(currentNode !== null) {
+          let nextNode = currentNode.next
+          while (nextNode !== null && nextNode.value === currentNode.value) {
+              nextNode = nextNode.next
+          }
+          
+          currentNode.next = nextNode
+          currentNode = nextNode
+      }
+      return linkedList
+}
+
+//  GET NTH FIBONACCI
+
+function getNthFib(n) {
+    // Write your code here.
+      if (n === 2) {
+          return 1
+      } else if (n === 1) {
+          return 0
+      } else {	
+          return getNthFib(n - 1) + getNthFib(n - 2)
+      }
+}
+
+// PALINDROME CHECK
+
+function isPalindrome(string) {
+    // Write your code here.
+      const splitStr = string.split("").reverse()
+      
+      return splitStr.join("") === string
   }
