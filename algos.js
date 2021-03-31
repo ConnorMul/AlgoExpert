@@ -247,3 +247,27 @@ function swap(i, j, array) {
 	array[j] = array[i]
 	array[i] = temp
 }
+
+// INSERTION SORT
+
+function selectionSort(array) {
+    let currentIdx = 0
+      while (currentIdx < array.length - 1) {
+          let smallestIdx = currentIdx
+      
+      for (let i = currentIdx + 1; i < array.length; i++) {
+          if (array[smallestIdx] > array[i]) {
+              smallestIdx = i
+          }
+      }
+          swap(currentIdx, smallestIdx, array)
+          currentIdx++
+      }
+      return array
+}
+  
+function swap(i, j, array) {
+    const temp = array[j]
+    array[j] = array[i]
+    array[i] = temp
+}
