@@ -178,17 +178,16 @@ function getNthFib(n) {
 function isPalindrome(string) {
     // Write your code here.
       const splitStr = string.split("").reverse()
-      
+
       return splitStr.join("") === string
 }
 
 // BST
 
 function findClosestValueInBst(tree, target) {
-    
       let currentNode = tree
       let closestValue = currentNode.value
-      
+
       while (currentNode !== null) {
           if (Math.abs(target - closestValue) > Math.abs(target - currentNode.value)) {
               closestValue = currentNode.value
@@ -203,9 +202,9 @@ function findClosestValueInBst(tree, target) {
       }
       return closestValue
 }
-  
-  // This is the class of the input tree. Do not edit.
-  class BST {
+
+// This is the class of the input tree. Do not edit.
+class BST {
     constructor(value) {
       this.value = value;
       this.left = null;
@@ -213,3 +212,38 @@ function findClosestValueInBst(tree, target) {
     }
 }
 
+// Bubble Sort
+
+function bubbleSort(array) {
+    // Write your code here.
+      for (let i = 0; i < array.length; i++) {
+          for (let j = i + 1; j < array.length; j++) {
+              if (array[i] > array[j]) {
+                  let holderPointer = array[i]
+                  array[i] = array[j]
+                  array[j] = holderPointer
+              }
+          }
+      }
+    return array
+}
+
+// Insertion Sort
+
+function insertionSort(array) {
+ 
+	for (let i = 1; i < array.length; i++) {
+		let j = i
+		while (j > 0 && array[j] < array[j - 1]) {
+			swap(j, j - 1, array)
+			j -= 1
+		}
+	}
+	return array
+}
+
+function swap(i, j, array) {
+	const temp = array[j]
+	array[j] = array[i]
+	array[i] = temp
+}
