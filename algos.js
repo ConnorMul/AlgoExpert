@@ -180,4 +180,36 @@ function isPalindrome(string) {
       const splitStr = string.split("").reverse()
       
       return splitStr.join("") === string
-  }
+}
+
+// BST
+
+function findClosestValueInBst(tree, target) {
+    
+      let currentNode = tree
+      let closestValue = currentNode.value
+      
+      while (currentNode !== null) {
+          if (Math.abs(target - closestValue) > Math.abs(target - currentNode.value)) {
+              closestValue = currentNode.value
+          }
+          if (target < currentNode.value) {
+              currentNode = currentNode.left
+          } else if (target > currentNode.value) {
+              currentNode = currentNode.right
+          } else {
+              break
+          }
+      }
+      return closestValue
+}
+  
+  // This is the class of the input tree. Do not edit.
+  class BST {
+    constructor(value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+    }
+}
+
