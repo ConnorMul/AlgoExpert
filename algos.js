@@ -272,6 +272,30 @@ function swap(i, j, array) {
     array[i] = temp
 }
 
+// SELECTION SORT
+
+function selectionSort(array) {
+    let currentIdx = 0
+      while (currentIdx < array.length - 1) {
+          let smallestIdx = currentIdx
+      
+      for (let i = currentIdx + 1; i < array.length; i++) {
+          if (array[smallestIdx] > array[i]) {
+              smallestIdx = i
+          }
+      }
+          swap(currentIdx, smallestIdx, array)
+          currentIdx++
+      }
+      return array
+}
+
+function swap(i, j, array) {
+	const temp = array[j]
+	array[j] = array[i]
+	array[i] = temp
+}
+
 // BRANCH SUMS
 
 function calculateBranchSums(node, runningSum, sums) {
@@ -328,4 +352,18 @@ class Node {
           }
           return array
     }
+}
+
+// PRODUCT SUM
+
+function productSum(array, multiplier = 1) {
+    let sum = 0
+   for (const element of array) {
+       if (Array.isArray(element)) {
+           sum += productSum(element, multiplier + 1)
+       } else {
+           sum += element
+       }
+   }
+   return sum * multiplier
 }
