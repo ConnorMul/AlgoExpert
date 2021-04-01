@@ -271,3 +271,61 @@ function swap(i, j, array) {
     array[j] = array[i]
     array[i] = temp
 }
+
+// BRANCH SUMS
+
+function calculateBranchSums(node, runningSum, sums) {
+	if (node === null) return
+	
+	let newRunningSum = runningSum + node.value
+	if (!node.left && !node.right) {
+		sums.push(newRunningSum)
+		return
+	}
+	calculateBranchSums(node.left, newRunningSum, sums)
+	calculateBranchSums(node.right, newRunningSum, sums)
+}
+
+function branchSums(root) {
+  sums = []
+	calculateBranchSums(root, 0, sums)
+	return sums
+}
+
+// NODE DEPTHS
+
+function nodeDepths(root, depth = 0) {
+    if (root === null) return 0
+   return depth + nodeDepths(root.left, depth + 1) + nodeDepths(root.right, depth + 1)
+}
+
+// This is the class of the input binary tree.
+class BinaryTree {
+ constructor(value) {
+   this.value = value;
+   this.left = null;
+   this.right = null;
+ }
+}
+
+// DEPTH FIRST SEARCH
+
+class Node {
+    constructor(name) {
+      this.name = name;
+      this.children = [];
+    }
+  
+    addChild(name) {
+      this.children.push(new Node(name));
+      return this;
+    }
+  
+    depthFirstSearch(array) {
+          array.push(this.name)
+          for (const child of this.children) {
+              child.depthFirstSearch(array)
+          }
+          return array
+    }
+}
