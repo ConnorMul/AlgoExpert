@@ -490,3 +490,21 @@ function runLengthEncoding(string) {
 	
 	return encodedArr.join('')
 }
+
+// CAESAR CYPHER ENCODER
+
+function caesarCipherEncryptor(string, key) {
+    // Write your code here.
+      const newStrArr = []
+      const newKey = key % 26
+      for (const char of string) {
+          const newLetterCode = char.charCodeAt() + key
+          newStrArr.push(getNewLetter(char, newKey))
+      }
+      return newStrArr.join("")
+}
+  
+function getNewLetter(letter, key) {
+      const newLetterCode = letter.charCodeAt() + key
+      return newLetterCode <= 122 ? String.fromCharCode(newLetterCode) : String.fromCharCode(96 + (newLetterCode % 122))
+}
