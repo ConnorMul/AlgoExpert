@@ -443,4 +443,28 @@ function sortedSquaredArray(array) {
       
       return resultsArr
 }
+
+// GENERATE DOCUMENT
+
+function generateDocument(characters, document) {
+    // Write your code here.
+      const charHash = {}
+      
+      for (let i = 0; i < characters.length; i++) {
+          let char = characters[i]
+          if (!charHash[char]) charHash[char] = 0
+          
+          charHash[char]++
+      }
+      
+      for (let j = 0; j < document.length; j++) {
+          let docChar = document[j]
+          
+          if (!charHash[docChar] || charHash[docChar] === 0) return false
+          
+          charHash[docChar]--
+      }
+      
+    return true;
+  }
   
