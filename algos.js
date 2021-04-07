@@ -554,3 +554,20 @@ var numIdenticalPairs = function(nums) {
     
     return numOfGoodPairs
 };
+
+// NUM OF JEWELS AND STONES
+
+var numJewelsInStones = function(jewels, stones) {
+    const jewelsHash = {}
+    let jewelsAndStones = 0
+    
+    for (let i = 0; i < jewels.length; i++) {
+        jewelsHash[jewels[i]] = 1
+    }
+    
+    for (let j = 0; j < stones.length; j++) {
+        if (jewelsHash[stones[j]]) jewelsAndStones++
+    }
+    
+    return jewelsAndStones
+}
