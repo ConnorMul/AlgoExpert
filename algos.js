@@ -468,3 +468,25 @@ function generateDocument(characters, document) {
     return true;
   }
   
+
+//   RUN LENGTH ENCODING
+
+function runLengthEncoding(string) {
+	let encodedArr = []
+	let currentRunLength = 1
+	
+	for (let i = 1; i < string.length; i++) {
+		let currentChar = string[i]
+		let previousChar = string[i - 1]
+		
+		if (currentChar != previousChar || currentRunLength === 9) {
+			encodedArr.push(currentRunLength.toString() + previousChar)
+			currentRunLength = 0
+		}
+		currentRunLength++
+	}
+	
+	encodedArr.push(currentRunLength.toString() + string[string.length - 1])
+	
+	return encodedArr.join('')
+}
