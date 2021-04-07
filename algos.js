@@ -508,3 +508,18 @@ function getNewLetter(letter, key) {
       const newLetterCode = letter.charCodeAt() + key
       return newLetterCode <= 122 ? String.fromCharCode(newLetterCode) : String.fromCharCode(96 + (newLetterCode % 122))
 }
+
+// GREATEST NUM OF CANDIES (LEETCODE)
+var kidsWithCandies = function(candies, extraCandies) {
+    const resultsArr = []
+    let greatestNumOfCandies = 0
+    
+    for (let i = 0; i < candies.length; i++) {
+        if (candies[i] > greatestNumOfCandies) greatestNumOfCandies = candies[i]
+    }
+    
+    for (let j = 0; j < candies.length; j++) {
+        resultsArr.push(candies[j] + extraCandies >= greatestNumOfCandies)
+    }
+    return resultsArr
+};
