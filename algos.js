@@ -417,3 +417,30 @@ function binarySearch(array, target) {
       }
       
   }
+
+//   SORTED SQUARES 2
+
+function sortedSquaredArray(array) {
+    // Write your code here.
+      const resultsArr = []
+      let smallestIdx = 0
+      let largestIdx = array.length - 1
+      
+      for (let i = array.length - 1; i >= 0; i--) {
+          let smallestValue = array[smallestIdx]
+          let largestValue = array[largestIdx]
+          
+          if (Math.abs(smallestValue) > Math.abs(largestValue)) {
+              let squared = smallestValue * smallestValue
+              resultsArr[i] = squared
+              smallestIdx++
+          } else {
+              let squared = largestValue * largestValue
+              resultsArr[i] = squared
+              largestIdx--
+          }
+      }
+      
+      return resultsArr
+}
+  
