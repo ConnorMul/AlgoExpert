@@ -530,12 +530,11 @@ var maximumWealth = function(accounts) {
     let greatestCustomerWealth = 0
     
     for (let i = 0; i < accounts.length; i++) {
-        for (let j = 0; j < accounts[i].length; j++) {
-            let sumOfCustomerAccount = accounts[i].reduce((a, b) => a + b)
-            if (sumOfCustomerAccount > greatestCustomerWealth) {
-                greatestCustomerWealth = sumOfCustomerAccount
-            }
+        let sumOfCustomerAccount = accounts[i].reduce((a, b) => a + b)
+        if (sumOfCustomerAccount > greatestCustomerWealth) {
+            greatestCustomerWealth = sumOfCustomerAccount
         }
     }
+    
     return greatestCustomerWealth
-};
+}
