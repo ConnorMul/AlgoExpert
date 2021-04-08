@@ -589,3 +589,25 @@ var smallerNumbersThanCurrent = function(nums) {
     
     return resultsArr
 }
+
+// NUM OF STEPS TO REDUCE A NUMBER TO ZERO (LEETCODE)
+
+var numberOfSteps = function(num) {
+    let count = 0
+    return numberOfStepsHelper(num, count)
+};
+
+var numberOfStepsHelper = function(num, count) {
+    while (num !== 0) {
+        if (num % 2 === 0) {
+            num = num / 2
+            count++
+            return numberOfStepsHelper(num, count)
+        } else {
+            num = (num - 1)
+            count++
+            return numberOfStepsHelper(num, count)
+        }
+    }
+    return count
+}
