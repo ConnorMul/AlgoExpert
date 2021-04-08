@@ -611,3 +611,15 @@ var numberOfStepsHelper = function(num, count) {
     }
     return count
 }
+
+// SHUFFLE STRING (LEETCODE)
+
+var restoreString = function(s, indices) {
+    let resultsStrArr = []
+    
+    for (let i = 0; i < s.length; i++) {
+        resultsStrArr[indices[i]]=s[i]
+    }
+    
+    return resultsStrArr.join("")
+};
