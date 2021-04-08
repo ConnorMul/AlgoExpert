@@ -623,3 +623,17 @@ var restoreString = function(s, indices) {
     
     return resultsStrArr.join("")
 };
+
+// DECOMPRESS RUN LENGTH ENCODING 
+
+var decompressRLEList = function(nums) {
+    const resultsArr = []
+    
+    for (let i = 0; i < nums.length; i++) {
+        let [freq, value] = [nums[i], nums[i + 1]]
+        resultsArr.push(...Array(freq).fill(value));
+        i++
+    }
+    
+    return resultsArr
+};
