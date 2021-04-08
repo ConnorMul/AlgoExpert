@@ -555,7 +555,7 @@ var numIdenticalPairs = function(nums) {
     return numOfGoodPairs
 };
 
-// NUM OF JEWELS AND STONES
+// NUM OF JEWELS AND STONES (LEETCODE)
 
 var numJewelsInStones = function(jewels, stones) {
     const jewelsHash = {}
@@ -570,4 +570,22 @@ var numJewelsInStones = function(jewels, stones) {
     }
     
     return jewelsAndStones
+}
+
+// SMALLER NUMBERS THAN CURRENT (LEETCODE)
+
+var smallerNumbersThanCurrent = function(nums) {
+    const resultsArr = []
+    
+    for (let i = 0; i < nums.length; i++) {
+        let numsSmallerThanOtherNum = 0
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[i] > nums[j] && nums[i] !== nums[j]) {
+                numsSmallerThanOtherNum++
+            }
+        }
+        resultsArr.push(numsSmallerThanOtherNum)
+    }
+    
+    return resultsArr
 }
