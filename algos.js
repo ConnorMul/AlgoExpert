@@ -639,6 +639,7 @@ var decompressRLEList = function(nums) {
 };
 
 // COUNT CONSISTENT STRINGS (LEETCODE)
+
 var countConsistentStrings = function(allowed, words) {
     let numOfConsistentStrings = 0
    
@@ -650,4 +651,22 @@ var countConsistentStrings = function(allowed, words) {
         if (isAllowed) numOfConsistentStrings++
     }
     return numOfConsistentStrings
+};
+
+// GOAL PARSER INTERPRETATION (LEETCODE)
+
+var interpret = function(command) {
+    let resultArr = []
+    
+    for (let i = 0; i < command.length; i++) {
+        if (command[i] === "G") {
+            resultArr.push(command[i])
+        } else if (command[i]  === "(" && command[i + 1] === ")") {
+            resultArr.push("o")
+        } else if (command[i] === "(" && command[i + 1] === "a" && command[i + 2] === "l" && command[i + 3] === ")") {
+            resultArr.push("al")
+        }
+    }
+    
+    return resultArr.join("")
 };
