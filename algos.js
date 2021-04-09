@@ -637,3 +637,17 @@ var decompressRLEList = function(nums) {
     
     return resultsArr
 };
+
+// COUNT CONSISTENT STRINGS (LEETCODE)
+var countConsistentStrings = function(allowed, words) {
+    let numOfConsistentStrings = 0
+   
+    for (const word of words) {
+        let isAllowed = true
+        for (const letter of word) {
+            if (!allowed.includes(letter)) isAllowed = false
+        }
+        if (isAllowed) numOfConsistentStrings++
+    }
+    return numOfConsistentStrings
+};
