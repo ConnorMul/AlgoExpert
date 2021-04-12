@@ -670,3 +670,32 @@ var interpret = function(command) {
     
     return resultArr.join("")
 };
+
+// NUM OF ITEMS MATCHING RULE (LEETCODE)
+
+var countMatches = function(items, ruleKey, ruleValue) {
+    let numOfItemsMatchingRule = 0
+    
+    for (let i = 0; i < items.length; i++) {
+        if (ruleKey === "type" && ruleValue === items[i][0]) {
+            numOfItemsMatchingRule++
+        } else if (ruleKey === "color" && ruleValue === items[i][1]) {
+            numOfItemsMatchingRule++
+        } else if (ruleKey === "name" && ruleValue === items[i][2]) {
+            numOfItemsMatchingRule++
+        }
+    }
+    
+    return numOfItemsMatchingRule
+};
+
+// CREATE TARGET ARRAY (LEETCODE)
+
+var createTargetArray = function(nums, index) {
+    const resultArr = []
+    for (let i = 0; i < nums.length; i++) {
+        resultArr.splice(index[i], 0, nums[i]);
+    }
+    
+    return resultArr
+};
