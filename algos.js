@@ -699,3 +699,12 @@ var createTargetArray = function(nums, index) {
     
     return resultArr
 };
+
+// TWO STRING ARRAYS (LEETCODE)
+
+var arrayStringsAreEqual = function(word1, word2) {
+    let joined1 = word1.join("")
+    let joined2 = word2.join('')
+    
+    return joined1 === joined2
+};
