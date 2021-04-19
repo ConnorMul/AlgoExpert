@@ -708,3 +708,16 @@ var arrayStringsAreEqual = function(word1, word2) {
     
     return joined1 === joined2
 };
+
+// NUM OF EVEN NUMS 
+
+var findNumbers = function(nums) {
+    let numOfEvenNums = 0
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i].toString().length % 2 === 0) {
+            numOfEvenNums++
+        }
+    }
+    return numOfEvenNums
+};
