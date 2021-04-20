@@ -709,7 +709,7 @@ var arrayStringsAreEqual = function(word1, word2) {
     return joined1 === joined2
 };
 
-// NUM OF EVEN NUMS 
+// NUM OF EVEN NUMS (LEETCODE)
 
 var findNumbers = function(nums) {
     let numOfEvenNums = 0
@@ -720,4 +720,27 @@ var findNumbers = function(nums) {
         }
     }
     return numOfEvenNums
+};
+
+// NUMBER OF MAX LENGTH RECTANGLES (LEETCODE)
+
+var countGoodRectangles = function(rectangles) {
+    let maxLen = 0
+    let numOfMaxLenRectangles = 0
+    
+    for (let i = 0; i < rectangles.length; i++) {
+        if (maxLen < Math.min(...rectangles[i])) {
+            maxLen = Math.min(...rectangles[i])
+        }
+        rectangles[i][0] = Math.min(...rectangles[i])
+        rectangles[i][1] = Math.min(...rectangles[i])
+    }
+   console.log(rectangles)
+    for (let j = 0; j < rectangles.length; j++) {
+        if (rectangles[j][0] === maxLen || rectangles[j][1] === maxLen) {
+            numOfMaxLenRectangles++
+        }
+    }
+    
+    return numOfMaxLenRectangles
 };
