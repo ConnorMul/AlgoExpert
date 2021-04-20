@@ -744,3 +744,17 @@ var countGoodRectangles = function(rectangles) {
     
     return numOfMaxLenRectangles
 };
+
+// MAXIMUM 69 NUMBER (LEETCODE)
+
+var maximum69Number  = function(num) {
+    const splitNum = num.toString().split("")
+    
+        for (let i = 0; i < splitNum.length; i++) {
+            if (splitNum[i] === "6") {
+                splitNum[i] = "9"
+                break
+            }
+        }
+    return parseInt(splitNum.join(""))
+};
