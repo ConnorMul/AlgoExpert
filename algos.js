@@ -785,3 +785,19 @@ var busyStudent = function(startTime, endTime, queryTime) {
     
     return numOfStudentsDoingHWAtQueryTime
 };
+
+// COUNT NUMBER OF NEGATIVES IN A GRID (LEETCODE)
+
+var countNegatives = function(grid) {
+    let numOfNegatives = 0
+    
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            if (grid[i][j] < 0) {
+                numOfNegatives++
+            }
+        }
+    }
+    
+    return numOfNegatives
+};
