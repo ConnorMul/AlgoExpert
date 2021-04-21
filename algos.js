@@ -758,3 +758,16 @@ var maximum69Number  = function(num) {
         }
     return parseInt(splitNum.join(""))
 };
+
+// MERGE ALTERNATING CHARACTERS (LEETCODE)
+
+var mergeAlternately = function(word1, word2) {
+    const resultArr = []
+    const maxLength = Math.max(word1.length, word2.length)
+    
+    for (let i = 0; i < maxLength; i++) {
+            resultArr.push(word1[i], word2[i])
+    }
+    
+    return resultArr.join("")
+};
