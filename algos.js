@@ -801,3 +801,69 @@ var countNegatives = function(grid) {
     
     return numOfNegatives
 };
+
+// SUM OF UNIQUES (LEETCODE)
+
+var sumOfUnique = function(nums) {
+    const numsHash = {}
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (!numsHash[nums[i]]) numsHash[nums[i]] = 0
+        
+        numsHash[nums[i]]++
+    }
+    
+    const keysArray = Object.keys(numsHash).filter(key => numsHash[key] === 1)
+    let sum = 0
+    
+    for (let j = 0; j < keysArray.length; j++) {
+        sum += parseInt(keysArray[j])
+    }
+    return sum
+};
+
+// N REPEATED ELEMENT IN ARRAY (LEETCODE)
+
+var repeatedNTimes = function(A) {
+    A.sort((a, b) => a - b)
+    
+    for (let i = 1; i < A.length; i++) {
+        if (A[i] === A[i - 1]) return A[i]    
+    }
+    
+};
+
+// REPLACE NUM IN ARRAY WITH GREATEST NUM ON RIGHT SIDE (LEETCODE)
+
+var replaceElements = function(arr) {
+    
+    for (let i = 0; i < arr.length; i++) {
+        let maxValue = 0
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] > maxValue) maxValue = arr[j]
+        }
+        arr[i] = maxValue
+    }
+    arr[arr.length - 1] = -1 
+    return arr
+};
+
+// JUDGE IF ROBOT MOVES IN COMPLETE CIRCLE BACK TO BEGINNING POINT (LEETCODE)
+
+var judgeCircle = function(moves) {
+    let x = 0
+    let y = 0
+    
+    for (let i = 0; i < moves.length; i++) {
+        if (moves[i] === "R") {
+            x++
+        } else if (moves[i] === "L") {
+            x--
+        } else if (moves[i] === "U") {
+            y++
+        } else if (moves[i] === "D") {
+            y--
+        }
+    }
+   return x === 0 && y === 0
+};
