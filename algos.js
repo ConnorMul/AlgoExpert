@@ -867,3 +867,24 @@ var judgeCircle = function(moves) {
     }
    return x === 0 && y === 0
 };
+
+// REVERSE WORDS (LEETCODE)
+
+var reverseWords = function(s) {
+    const splitStr = s.split(" ")
+    const resultArr = []
+    
+    function reverseString(str) {
+    var newString = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+    
+   for (let i = 0; i < splitStr.length; i++) {
+       resultArr.push(reverseString(splitStr[i]))
+   }
+    
+    return resultArr.join(" ")
+};
