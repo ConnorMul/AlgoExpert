@@ -888,3 +888,19 @@ var reverseWords = function(s) {
     
     return resultArr.join(" ")
 };
+
+// HEIGHT CHECKER (LEETCODE)
+
+var heightChecker = function(heights) {
+    let numOfIndicesWhereHeightIsNotExpected = 0
+    const expected = [...heights]
+    expected.sort((a, b) => a - b)
+    
+    for (let i = 0; i < heights.length; i++) {
+        if (heights[i] !== expected[i]) {
+            numOfIndicesWhereHeightIsNotExpected++
+        } 
+    }
+    
+    return numOfIndicesWhereHeightIsNotExpected
+};
