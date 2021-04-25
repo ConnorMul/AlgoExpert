@@ -904,3 +904,24 @@ var heightChecker = function(heights) {
     
     return numOfIndicesWhereHeightIsNotExpected
 };
+
+
+function measureWaterHeight (array) {
+    let amountOfWaterThatCanBeStored = 0
+    let leftMaxHeight = 0
+    let rightMaxHeight = 0
+    let leftPointer = 0
+    let rightPointer = array.length - 1
+  
+    while (leftPointer < rightPointer) {
+        leftMaxHeight = Math.max(leftMaxHeight, array[leftPointer])
+        rightMaxHeight = Math.max(rightMaxHeight, array[rightPointer])
+        if (array[leftPointer] < array[rightPointer]) {
+            amountOfWaterThatCanBeStored += leftMaxHeight - array[leftPointer++]
+        } else {
+            amountOfWaterThatCanBeStored += rightMaxHeight - array[rightPointer--]
+        }
+    }
+    
+    return amountOfWaterThatCanBeStored;
+  };
