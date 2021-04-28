@@ -905,6 +905,7 @@ var heightChecker = function(heights) {
     return numOfIndicesWhereHeightIsNotExpected
 };
 
+// TRAP RAIN WATER (LEETCODE)
 
 function measureWaterHeight (array) {
     let amountOfWaterThatCanBeStored = 0
@@ -925,3 +926,17 @@ function measureWaterHeight (array) {
     
     return amountOfWaterThatCanBeStored;
   };
+
+//   MAX STOCK PROFIT (LEETCODE)
+
+  var maxProfit = function(prices) {
+    let maxprofit = 0;
+    let minprice = Infinity;
+    
+    for (let day = 0; day < prices.length; day++) {
+        minprice = Math.min(minprice, prices[day]);
+        maxprofit = Math.max(maxprofit, prices[day] - minprice);
+    }
+    
+    return maxprofit;
+};
