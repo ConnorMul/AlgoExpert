@@ -938,4 +938,4 @@ function measureWaterHeight (array) {
         maxprofit = Math.max(maxprofit, prices[day] - minprice);
     }
     return maxprofit;
-};
+}
