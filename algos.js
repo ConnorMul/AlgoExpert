@@ -939,3 +939,24 @@ function measureWaterHeight (array) {
     }
     return maxprofit;
 }
+
+// WATER AREA (ALGOEXPERT)
+
+function waterArea(heights) {
+    let waterThatCanBeStored = 0
+      let leftPointer = 0
+      let rightPointer = heights.length - 1
+      let leftMaxHeight = 0
+      let rightMaxHeight = 0
+      
+      while (leftPointer < rightPointer) {
+          leftMaxHeight = Math.max(leftMaxHeight, heights[leftPointer])
+          rightMaxHeight = Math.max(rightMaxHeight, heights[rightPointer])
+          if (heights[leftPointer] < heights[rightPointer]) {
+              waterThatCanBeStored += leftMaxHeight - heights[leftPointer++]
+          } else {
+              waterThatCanBeStored += rightMaxHeight - heights[rightPointer--]
+          }
+      }
+      return waterThatCanBeStored
+  }
