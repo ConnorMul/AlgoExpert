@@ -959,4 +959,28 @@ function waterArea(heights) {
           }
       }
       return waterThatCanBeStored
-  }
+}
+
+// SUBARRAY DOMAINS (LEETCODE)
+
+var subdomainVisits = function(cpdomains) {
+    const map = new Map();
+    
+    for (const domain of cpdomains) {
+        let amount = domain.split(" ")[0] - "0";
+        let dmn = domain.split(" ")[1].split(".");
+        map.set(dmn.slice(0).join("."), (map.get(dmn.slice(0).join(".")) || 0) + amount);
+        
+        if (dmn.slice(1).length > 0) {
+            map.set(dmn.slice(1).join("."), (map.get(dmn.slice(1).join(".")) || 0) + amount);
+        }
+        
+        if (dmn.slice(2).length > 0) {
+            map.set(dmn.slice(2).join("."), (map.get(dmn.slice(2).join(".")) || 0) + amount);
+        }
+    }
+        
+    const res = [];
+    for (const entry of [...map.entries()]) {
+        res.push(entry[1] + " " + entry[0]);
+    }
