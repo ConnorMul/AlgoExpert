@@ -1018,4 +1018,22 @@ var minTaps = function(n, ranges) {
     }
     
     return minNumOfTaps
-};
+}
+
+// FIRST MISSING POSITIVE (LEETCODE)
+
+var firstMissingPositive = function(nums) {
+    let numMissing = 1
+    nums.sort((a, b) => a - b)
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (Math.abs(nums[i]) !== Math.abs(nums[i + 1]) && Math.abs(nums[i]) !== Math.abs(nums[i + 1])) {
+            numMissing = Math.abs(nums[i] + 1)
+        } else if (Math.abs(nums[i]) === Math.abs(nums[i + 1])) {
+            numMissing = nums[i] + 2
+        }
+    }
+    
+    return numMissing
+}
+
