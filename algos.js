@@ -1020,7 +1020,7 @@ var minTaps = function(n, ranges) {
     return minNumOfTaps
 }
 
-// FIRST MISSING POSITIVE (LEETCODE)
+// FIRST MISSING POSITIVE (LEETCODE) - NOT COMPLETE
 
 var firstMissingPositive = function(nums) {
     let numMissing = 1
@@ -1036,4 +1036,11 @@ var firstMissingPositive = function(nums) {
     
     return numMissing
 }
+
+// PALINDROMIC SUBSTRINGS (LEETCODE)
+
+var countSubstrings = function(s) {
+    
+}
+
 
