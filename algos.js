@@ -984,3 +984,20 @@ var subdomainVisits = function(cpdomains) {
     for (const entry of [...map.entries()]) {
         res.push(entry[1] + " " + entry[0]);
     }
+
+// ALL DUPLICATES IN ARRAY (LEETCODE)
+
+var findDuplicates = function(nums) {
+    const numHash = {}
+    const resultArr = []
+    for (let i = 0; i < nums.length; i++) {
+        if (!numHash[nums[i]]) numHash[nums[i]] = 0
+        numHash[nums[i]]++
+        
+        if (numHash[nums[i]] === 2) {
+            resultArr.push(nums[i])
+        }
+    }
+    
+    return resultArr
+};
