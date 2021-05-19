@@ -1000,4 +1000,22 @@ var findDuplicates = function(nums) {
     }
     
     return resultArr
+}
+
+// MIN TAPS OPEN TO WATER A GARDEN (LEETCODE) - NOT FINISHED
+
+var minTaps = function(n, ranges) {
+    let minNumOfTaps = 0
+    
+    for(let i = 0; i < ranges.length; i++) {
+        if (i - ranges[i] <= 0 && i + ranges[i] >= n) {
+            minNumOfTaps++
+        }
+    }
+    
+    if (minNumOfTaps === 0) {
+        return -1
+    }
+    
+    return minNumOfTaps
 };
