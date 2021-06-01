@@ -1107,3 +1107,23 @@ function smallestDifference(arrayOne, arrayTwo) {
       }
       return smallestPair
   }
+
+//   MOVE ELEMENT TO END 
+
+function moveElementToEnd(array, toMove) {
+	let lastIdx = array.length - 1
+	let firstIdx = 0
+	let nextIdx = firstIdx + 1
+	while (firstIdx < array.length) {
+		if (array[firstIdx] !== toMove) {
+			firstIdx++
+		} else if (array[firstIdx] === toMove) {
+			array[lastIdx + 1] = array[firstIdx]
+			array[firstIdx] = array[firstIdx + 1]
+			console.log(array[firstIdx])
+		} 
+	}
+	
+	return array
+}
+
