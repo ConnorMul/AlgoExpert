@@ -984,6 +984,7 @@ var subdomainVisits = function(cpdomains) {
     for (const entry of [...map.entries()]) {
         res.push(entry[1] + " " + entry[0]);
     }
+}
 
 // ALL DUPLICATES IN ARRAY (LEETCODE)
 
@@ -1138,6 +1139,9 @@ function fibonacciSeq(n) {
 
     return fibonacciSeq(n - 1) + fibonacciSeq(n - 2)
 }
+
+// MAJORITY ELEMENT
+
 function majorityElement(nums) {
     const hashMap = {}
     
@@ -1151,4 +1155,21 @@ function majorityElement(nums) {
     
     return Object.keys(hashMap).reduce((a, b) => hashMap[a] > hashMap[b] ? a : b)
     
+}
+
+// TWO SUM II
+
+var twoSum = function(numbers, target) {
+    let right = numbers.length - 1;
+       let left = 0;
+       for ( ; right > left; right--) {
+           if (numbers[right] + numbers[left] > target) continue;
+           for ( ; left < right; left++) {
+               if (numbers[right] + numbers[left] === target) {
+                   return [left+1, right+1];
+               } else if (numbers[right] + numbers[left] > target) {
+                   break;
+               }
+           }
+       }
 };
