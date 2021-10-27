@@ -1053,7 +1053,7 @@ var groupAnagrams = function(strs) {
 
 function threeNumberSum(array, targetSum) {
 	array.sort((a, b) => a - b)
-  const resultsArr = []
+    const resultsArr = []
 	
 	for (let i = 0; i < array.length; i++) {
 		let left = i + 1
@@ -1078,7 +1078,7 @@ function threeNumberSum(array, targetSum) {
 // SMALLEST DIFFERENCE
 
 function smallestDifference(arrayOne, arrayTwo) {
-    arrayOne.sort((a, b) => a - b)
+      arrayOne.sort((a, b) => a - b)
       arrayTwo.sort((a, b) => a - b)
       
       let idxOne = 0
@@ -1127,3 +1127,28 @@ function moveElementToEnd(array, toMove) {
 	return array
 }
 
+function fibonacciSeq(n) {
+    if (n ===  2) {
+        return 1
+    } else if (n === 1) {
+        return 1
+    } else if (n === 0) {
+        return 0
+    }
+
+    return fibonacciSeq(n - 1) + fibonacciSeq(n - 2)
+}
+function majorityElement(nums) {
+    const hashMap = {}
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (hashMap[nums[i]]) {
+            hashMap[nums[i]]++
+        } else {
+            hashMap[nums[i]] = 1
+        }
+    }
+    
+    return Object.keys(hashMap).reduce((a, b) => hashMap[a] > hashMap[b] ? a : b)
+    
+};
